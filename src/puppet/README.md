@@ -1,7 +1,7 @@
 
 # Puppet Agent and PDK (puppet)
 
-Install Puppet Agent and PDK via official Puppetlabs repository.
+Install and configure Puppet Agent and PDK via official Puppetlabs repository and Puppet extension for VS Code. This feature is itended for Puppet code/modules development.
 
 ## Example Usage
 
@@ -15,7 +15,7 @@ Install Puppet Agent and PDK via official Puppetlabs repository.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Select or enter a Puppet version to install | string | 8 |
+| version | Select Puppet version to install. | string | latest |
 
 ## Customizations
 
@@ -23,6 +23,11 @@ Install Puppet Agent and PDK via official Puppetlabs repository.
 
 - `puppet.puppet-vscode`
 
+## OS Support
+
+This Feature should work on recent versions of Debian/Ubuntu-based distributions with the `apt` package manager installed.
+
+`bash` is required to execute the `install.sh` script.
 
 
 ---
