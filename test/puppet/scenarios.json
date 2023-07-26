@@ -1,0 +1,17 @@
+{
+    "latest_puppet_version": {
+        "image": "debian:bullseye",
+        "features": {
+            "ghcr.io/devcontainers/features/git:1": {},
+            "puppet": {}
+        }
+    },
+    "specific_puppet_version": {
+        "image": "debian:bullseye",
+        "features": {
+            "puppet": {
+                "version": "7"
+            }
+        }
+    }
+}

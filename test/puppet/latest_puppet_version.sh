@@ -10,9 +10,10 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
+latest_version="$(git ls-remote --tags https://github.com/puppetlabs/puppet |grep -oP '\d+\.\d+\.\d+$' | sort -V |tail -n1)"
 export PDK_DISABLE_ANALYTICS=true
 
-check "puppet version" puppet --version
+check "latest puppet version ${latest_version} installed" puppet --version | grep "$latest_version"
 check "pdk version" pdk --version
 
 # Report results

@@ -12,7 +12,7 @@ source dev-container-features-test-lib
 # check <LABEL> <cmd> [args...]
 export PDK_DISABLE_ANALYTICS=true
 
-check "puppet version" puppet --version
+check "puppet version" puppet --version | grep -E '^7'
 check "pdk version" pdk --version
 
 # Report results

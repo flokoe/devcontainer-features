@@ -2,8 +2,8 @@
 
 set -e
 
-readonly PUPPET_VERSION=${VERSION:-"8"}
-readonly PUPPET_RELEASE_GPG_KEY="D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26"
+PUPPET_VERSION=${VERSION:-"latest"}
+PUPPET_RELEASE_GPG_KEY="D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26"
 GPG_KEY_SERVERS="keyserver hkp://keyserver.ubuntu.com
 keyserver hkps://keys.openpgp.org
 keyserver hkp://keyserver.pgp.com"
@@ -82,6 +82,12 @@ check_packages() {
     fi
 }
 
+if [[ $PUPPET_VERSION == "latest" ]]; then
+    lates_version="$(git ls-remote --tags https://github.com/puppetlabs/puppet |grep -oP '\d+\.\d+\.\d+$' | sort -V |tail -n1 |cut -d '.' -f1)"
+    PUPPET_VERSION=$lates_version
+    echo "Latest version was selected. Going to install Puppet ${PUPPET_VERSION}."
+fi
+
 echo "Start installing puppet-agent and pdk..."
 
 # Ensure apt is in non-interactive to avoid prompts
@@ -91,7 +97,7 @@ check_packages curl ca-certificates gnupg2 dirmngr apt-transport-https debian-ar
 
 # Get GPG Key and add source list
 receive_gpg_keys PUPPET_RELEASE_GPG_KEY /usr/share/keyrings/puppet.gpg
-echo -e "deb [arch=${ARCHITECTURE} signed-by=/usr/share/keyrings/puppet.gpg] https://apt.puppet.com ${VERSION_CODENAME} puppet${PUPPET_VERSION}" >/etc/apt/sources.list.d/puppet.list
+echo "deb [arch=${ARCHITECTURE} signed-by=/usr/share/keyrings/puppet.gpg] https://apt.puppet.com ${VERSION_CODENAME} puppet${PUPPET_VERSION}" >/etc/apt/sources.list.d/puppet.list
 
 apt-get update -y
 apt-get install -y puppet-agent pdk
