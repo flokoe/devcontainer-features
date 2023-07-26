@@ -7,12 +7,11 @@
         "version": {
             "type": "string",
             "proposals": [
-                "latest",
                 "8",
                 "7"
             ],
-            "default": "latest",
-            "description": "Select or enter a Ruby version to install"
+            "default": "8",
+            "description": "Select or enter a Puppet version to install"
         }
     },
     "customizations": {
