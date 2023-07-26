@@ -15,9 +15,8 @@ jobs:
         features:
           - puppet
         baseImage:
-          - debian:latest
+          - debian:bullseye
           - ubuntu:latest
-          - mcr.microsoft.com/devcontainers/base:ubuntu
     steps:
       - uses: actions/checkout@v3
 
