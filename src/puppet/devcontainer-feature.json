@@ -1,6 +1,6 @@
 {
     "id": "puppet",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "name": "Puppet Agent and PDK",
     "description": "Install Puppet Agent and PDK via official Puppetlabs repository.",
     "options": {
@@ -18,7 +18,11 @@
         "vscode": {
             "extensions": [
                 "puppet.puppet-vscode"
-            ]
+            ],
+            "settings": {
+                "puppet.installType": "pdk",
+                "puppet.installDirectory": "/opt/puppetlabs/pdk"
+            }
         }
     },
     "installsAfter": [
