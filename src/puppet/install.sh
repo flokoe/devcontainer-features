@@ -45,18 +45,17 @@ receive_gpg_keys() {
     export GNUPGHOME="/tmp/tmp-gnupg"
     mkdir -p ${GNUPGHOME}
     chmod 700 ${GNUPGHOME}
-    echo -e "disable-ipv6\n${GPG_KEY_SERVERS}" > ${GNUPGHOME}/dirmngr.conf
+    echo -e "disable-ipv6\n${GPG_KEY_SERVERS}" >${GNUPGHOME}/dirmngr.conf
     # GPG key download sometimes fails for some reason and retrying fixes it.
     local retry_count=0
     local gpg_ok="false"
     set +e
-    until [ "${gpg_ok}" = "true" ] || [ "${retry_count}" -eq "5" ]; 
-    do
+    until [ "${gpg_ok}" = "true" ] || [ "${retry_count}" -eq "5" ]; do
         echo "(*) Downloading GPG key..."
-        ( echo "${keys}" | xargs -n 1 gpg -q ${keyring_args} --recv-keys) 2>&1 && gpg_ok="true"
+        (echo "${keys}" | xargs -n 1 gpg -q ${keyring_args} --recv-keys) 2>&1 && gpg_ok="true"
         if [ "${gpg_ok}" != "true" ]; then
             echo "(*) Failed getting key, retring in 10s..."
-            (( retry_count++ ))
+            ((retry_count++))
             sleep 10s
         fi
     done
@@ -83,7 +82,7 @@ check_packages() {
 }
 
 if [[ $PUPPET_VERSION == "latest" ]]; then
-    lates_version="$(git ls-remote --tags https://github.com/puppetlabs/puppet |grep -oP '\d+\.\d+\.\d+$' | sort -V |tail -n1 |cut -d '.' -f1)"
+    lates_version="$(git ls-remote --tags https://github.com/puppetlabs/puppet | grep -oP '\d+\.\d+\.\d+$' | sort -V | tail -n1 | cut -d '.' -f1)"
     PUPPET_VERSION=$lates_version
     echo "Latest version was selected. Going to install Puppet ${PUPPET_VERSION}."
 fi
