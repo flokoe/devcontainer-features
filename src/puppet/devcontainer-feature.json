@@ -2,7 +2,7 @@
     "id": "puppet",
     "version": "0.3.0",
     "name": "Puppet Agent and PDK",
-    "description": "Install and configure Puppet Agent and PDK via official Puppetlabs repository and Puppet extension for VS Code. This feature is itended for Puppet code/modules development.",
+    "description": "Install and configure Puppet Agent and PDK via official Puppetlabs repository and Puppet extension for VS Code. This feature is intended for Puppet code/modules development.",
     "documentationURL": "https://github.com/flokoe/devcontainer-features/tree/main/src/puppet",
     "licenseURL": "https://github.com/flokoe/devcontainer-features/blob/main/LICENSE",
     "options": {
