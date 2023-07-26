@@ -13,12 +13,12 @@
     "options": {
         "version": {
             "type": "string",
-            "proposals": [
+            "enum": [
                 "8",
                 "7"
             ],
             "default": "8",
-            "description": "Select or enter a Puppet version to install"
+            "description": "Select Puppet version to install."
         }
     },
     "customizations": {
