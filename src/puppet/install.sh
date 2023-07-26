@@ -12,7 +12,7 @@ keyserver hkp://keyserver.pgp.com"
 ARCHITECTURE="$(dpkg --print-architecture)"
 
 # check supported arch
-if [[ ! $ARCHITECTURE =~ ^(amd64|x86_64|i386) ]]; then
+if [[ ! $ARCHITECTURE =~ ^(amd64|i386) ]]; then
     echo "ERROR: Architecture $ARCHITECTURE is not supported!" >&2
     exit 1
 fi
