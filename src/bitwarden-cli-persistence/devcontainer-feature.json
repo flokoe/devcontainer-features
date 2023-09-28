@@ -1,0 +1,19 @@
+{
+    "id": "bitwarden-cli-persistence",
+    "version": "0.1.0",
+    "name": "Bitwarden CLI Persistence",
+    "description": "Avoid extra logins from the Bitwarden CLI by preserving the `~/.config/Bitwarden CLI` folder across container instances.",
+    "documentationURL": "https://github.com/flokoe/devcontainer-features/tree/main/src/bitwarden-cli-persistence",
+    "licenseURL": "https://github.com/flokoe/devcontainer-features/blob/main/LICENSE",
+    "options": {},
+    "mounts": [
+        {
+            "source": "${devcontainerId}-bitwarden-cli",
+            "target": "/dc/bitwarden-cli",
+            "type": "volume"
+        }
+    ],
+    "installsAfter": [
+        "ghcr.io/devcontainers-contrib/features/bitwarden-cli"
+    ]
+}

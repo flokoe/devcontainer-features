@@ -1,0 +1,9 @@
+{
+    "with_vscode": {
+        "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+        "features": {
+            "bitwarden-cli-persistence": {},
+            "ghcr.io/devcontainers-contrib/features/bitwarden-cli": {}
+        }
+    }
+}
