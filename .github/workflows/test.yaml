@@ -18,7 +18,7 @@ jobs:
           - debian:bullseye
           - ubuntu:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
@@ -34,7 +34,7 @@ jobs:
         features:
           - puppet
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
