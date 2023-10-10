@@ -13,5 +13,13 @@
                 "version": "7"
             }
         }
+    },
+    "install_bolt": {
+        "image": "debian:bullseye",
+        "features": {
+            "puppet": {
+                "installBolt": "true"
+            }
+        }
     }
 }
