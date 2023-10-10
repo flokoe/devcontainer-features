@@ -3,6 +3,7 @@
 set -e
 
 PUPPET_VERSION=${VERSION:-"latest"}
+INSTALL_BOLT=${INSTALLBOLT:-"false"}
 PUPPET_RELEASE_GPG_KEY="D6811ED3ADEEB8441AF5AA8F4528B6CD9E61EF26"
 GPG_KEY_SERVERS="keyserver hkp://keyserver.ubuntu.com
 keyserver hkps://keys.openpgp.org
@@ -100,6 +101,10 @@ echo "deb [arch=${ARCHITECTURE} signed-by=/usr/share/keyrings/puppet.gpg] https:
 
 apt-get update -y
 apt-get install -y puppet-agent pdk
+
+if [[ $INSTALL_BOLT == "true" ]]; then
+    apt-get install -y puppet-bolt
+fi
 
 # Clean up
 rm -rf /tmp/tmp-gnupg
