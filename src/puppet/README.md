@@ -16,6 +16,7 @@ Install and configure Puppet Agent and PDK via official Puppetlabs repository an
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Select Puppet version to install. | string | latest |
+| installBolt | Install Bolt, a tool to orchestrate and automate manual work without the need for an agent. | boolean | false |
 
 ## Customizations
 
